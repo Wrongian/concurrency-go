@@ -1,5 +1,6 @@
 # What
 For concurrency models that I need to use in Go, currently only has a basic worker pool.
+More for understanding purposes.
 Has example(s) on how to use.
 
 # Why
