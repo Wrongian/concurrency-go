@@ -42,7 +42,7 @@ func (pool *Pool) Start() {
 	}
 
 	go func() {
-		pool.wg.Wait()
+		pool.Wait()
 		close(pool.OutChannel)
 	}()
 
@@ -66,7 +66,8 @@ func (pool *Pool) Wait() {
 	pool.wg.Wait()
 }
 
-// After done producing everything, close the input channel
+// After done producing everything close the input channel to close the pool
+// Required to be done for the pool the workers to return
 func (pool *Pool) Close() {
 	close(pool.InChannel)
 }
