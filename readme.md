@@ -14,11 +14,10 @@ as well.
 
 # How to run
 1. run ./build.sh
-2. run whatever examples such as:
-<br>
-`fib.exe 33`
+2. run whatever examples 
 
-to get the 33rd fibonacci number
+# Examples
+`fib.exe 33` to get the 33rd fibonacci number
 
 
 # Possible Extensions
