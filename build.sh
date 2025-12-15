@@ -1,0 +1,1 @@
+go build -o fib.exe app/Fib.go 
