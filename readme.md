@@ -15,7 +15,8 @@ as well.
 # How to run
 1. run ./build.sh
 2. run whatever examples such as:
-fib.exe 33
+<br>
+`fib.exe 33`
 to get the 33rd fibonacci number
 
 
