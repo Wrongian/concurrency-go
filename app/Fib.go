@@ -106,11 +106,26 @@ func fib(num int) (int, error) {
 	pool.AddJob(initJob)
 	pool.Start()
 	var res int
+	var err error
 	done := make(chan bool)
 
 	go func() {
 		for result := range pool.OutChannel {
-			fibPayload := result.Payload.(FibPayload)
+			if result.Error != nil {
+				pool.Close()
+				done <- true
+				err = result.Error
+				return
+			}
+
+			fibPayload, ok := result.Payload.(FibPayload)
+			if !ok {
+				pool.Close()
+				done <- true
+				err = fmt.Errorf("invalid payload type")
+				return
+			}
+
 			if !fibPayload.isDone {
 				pool.AddJob(workerpool.Job{
 					Action: fibAction,
@@ -126,5 +141,5 @@ func fib(num int) (int, error) {
 	}()
 	// wait till done
 	<-done
-	return res, nil
+	return res, err
 }
