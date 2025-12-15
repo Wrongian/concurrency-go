@@ -16,9 +16,11 @@ as well.
 1. run ./build.sh
 2. run whatever examples 
 
-# Examples
-`fib.exe 33` to get the 33rd fibonacci number
+# Current Examples
+1. Getting the nth fibonacci number with bottom up dp
 
+# Sample Examples
+`fib.exe 33` to get the 33rd fibonacci number
 
 # Possible Extensions
 Multiplexer/Load balancer (Fan in, fan out)
